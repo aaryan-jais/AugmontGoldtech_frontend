@@ -1,0 +1,85 @@
+<div class="wrapper">
+
+  <!-- Mobile Overlay -->
+  <div
+    class="overlay"
+    *ngIf="sidebarOpen"
+    (click)="toggleSidebar()">
+  </div>
+
+  <!-- Sidebar -->
+  <aside
+    class="sidebar"
+    [class.show]="sidebarOpen">
+
+    <div class="brand">
+      <div class="logo">📦</div>
+      <h3>Gold Tech</h3>
+      <p>Admin Panel</p>
+    </div>
+
+    <ul class="menu">
+
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active">
+          🏠 Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/product" routerLinkActive="active">
+          📦 Products
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/category" routerLinkActive="active">
+          📂 Categories
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/upload" routerLinkActive="active">
+          ☁️ Upload
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <nav class="topbar">
+
+      <!-- Mobile Menu -->
+      <button
+        class="menu-btn"
+        (click)="toggleSidebar()">
+
+        ☰
+
+      </button>
+
+      <h2>Dashboard</h2>
+
+      <button
+        class="logout-btn"
+        (click)="logout()">
+
+        Logout
+
+      </button>
+
+    </nav>
+
+    <div class="page-content">
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </div>
+
+</div>

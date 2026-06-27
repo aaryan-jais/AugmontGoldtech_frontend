@@ -1,0 +1,116 @@
+<div class="container mt-4">
+
+  <div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+
+      <h4 class="mb-0">
+        Category Management
+      </h4>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          <input
+            class="form-control"
+            placeholder="Category Name"
+            [(ngModel)]="name">
+
+        </div>
+
+        <div class="col-md-4 d-flex gap-2">
+
+          <button
+            class="btn btn-success w-100"
+            (click)="save()">
+
+            {{ editId ? 'Update' : 'Save' }}
+
+          </button>
+
+          <button
+            class="btn btn-secondary"
+            (click)="cancel()">
+
+            Cancel
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <hr>
+
+      <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+          <tr>
+
+            <th>#</th>
+
+            <th>Name</th>
+
+            <th width="180">
+              Action
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let c of categories; let i = index">
+
+            <td>{{ i + 1 }}</td>
+
+            <td>{{ c.name }}</td>
+
+            <td>
+
+              <button
+                class="btn btn-warning btn-sm me-2"
+                (click)="edit(c)">
+
+                Edit
+
+              </button>
+
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="delete(c.id)">
+
+                Delete
+
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr *ngIf="categories.length === 0">
+
+            <td colspan="3" class="text-center">
+
+              No Categories Found
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

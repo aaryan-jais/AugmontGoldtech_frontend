@@ -1,0 +1,31 @@
+<div class="container mt-4">
+
+  <input type="file" class="form-control" (change)="select($event)" />
+
+  <div class="mt-3 d-flex gap-2">
+
+    <button class="btn btn-primary" (click)="uploadCSV()">
+      Upload CSV
+    </button>
+
+    <button class="btn btn-success" (click)="uploadExcel()">
+      Upload Excel
+    </button>
+
+  </div>
+
+  <hr />
+
+  <div class="d-flex gap-2">
+
+    <button class="btn btn-outline-primary" (click)="downloadCSV()">
+      Download CSV
+    </button>
+
+    <button class="btn btn-outline-success" (click)="downloadExcel()">
+      Download Excel
+    </button>
+
+  </div>
+
+</div>

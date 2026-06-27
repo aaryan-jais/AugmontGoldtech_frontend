@@ -1,0 +1,124 @@
+<div class="container mt-4">
+
+  <!-- SEARCH -->
+  <div class="card p-3 mb-3 shadow-sm">
+    <div class="d-flex gap-2">
+      <input class="form-control"
+             [(ngModel)]="search"
+             placeholder="Search product" />
+
+      <button class="btn btn-primary" (click)="load()">
+        Search
+      </button>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="card p-3 mb-4 shadow-sm">
+
+    <h5>{{ editId ? 'Update Product' : 'Create Product' }}</h5>
+
+    <div class="row g-2">
+
+      <div class="col-md-4">
+        <input class="form-control"
+               [(ngModel)]="product.name"
+               placeholder="Name" />
+      </div>
+
+      <div class="col-md-4">
+        <input class="form-control"
+               [(ngModel)]="product.price"
+               placeholder="Price" />
+      </div>
+
+      <!-- CATEGORY DROPDOWN -->
+      <div class="col-md-4">
+        <select class="form-control"
+                [(ngModel)]="product.categoryId">
+
+          <option value="">Select Category</option>
+
+          <option *ngFor="let c of categories"
+                  [value]="c.id">
+            {{ c.name }}
+          </option>
+
+        </select>
+      </div>
+
+    </div>
+
+    <div class="mt-3">
+      <input type="file"
+             class="form-control"
+             (change)="onFileChange($event)" />
+    </div>
+
+    <div class="mt-3 d-flex gap-2">
+
+      <button class="btn btn-success" (click)="save()">
+        {{ editId ? 'Update' : 'Create' }}
+      </button>
+
+      <button class="btn btn-secondary" (click)="cancel()">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <div class="row">
+
+    <div class="col-md-4 mb-3" *ngFor="let p of products">
+
+      <div class="card shadow-sm">
+
+        <div class="card-body">
+
+          <h5>{{ p.name }}</h5>
+
+          <p>💰 {{ p.price }}</p>
+
+          <p class="text-muted">
+            Category: {{ p.Category?.name || p.categoryId }}
+          </p>
+
+          <div class="d-flex justify-content-between">
+
+            <button class="btn btn-warning btn-sm"
+                    (click)="edit(p)">
+              Edit
+            </button>
+
+            <button class="btn btn-danger btn-sm"
+                    (click)="delete(p.id)">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="d-flex justify-content-center gap-2 mt-3">
+
+    <button class="btn btn-outline-primary" (click)="previous()">
+      Prev
+    </button>
+
+    <button class="btn btn-outline-primary" (click)="next()">
+      Next
+    </button>
+
+  </div>
+
+</div>

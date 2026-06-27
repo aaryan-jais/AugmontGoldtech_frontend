@@ -1,0 +1,57 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="text-center mb-4">
+
+      <div class="logo">
+        📦
+      </div>
+
+      <h2>Augmont Gold tech</h2>
+
+      <p class="text-muted">
+        Admin Login
+      </p>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Email Address
+      </label>
+
+      <input
+        type="email"
+        class="form-control custom-input"
+        [(ngModel)]="email"
+        placeholder="Enter your email">
+
+    </div>
+
+    <div class="mb-4">
+
+      <label class="form-label">
+        Password
+      </label>
+
+      <input
+        type="password"
+        class="form-control custom-input"
+        [(ngModel)]="password"
+        placeholder="Enter your password">
+
+    </div>
+
+    <button
+      class="btn login-btn w-100"
+      (click)="login()">
+
+      Login
+
+    </button>
+
+  </div>
+
+</div>
